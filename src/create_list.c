@@ -19,7 +19,7 @@ t_stack *ft_create_list_q(char **argv, t_stack **stack)
 	int count;
 
 	tmp = ft_split(argv[1], ' ');
-	count = ft_count_words(argv{1});
+	count = ft_count_words(argv[1]);
 	if (count == 1)
 		exit (0);
 	return (ft_create_list_nq(count ,tmp, &a));

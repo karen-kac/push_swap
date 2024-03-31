@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 23:21:35 by myokono           #+#    #+#             */
-/*   Updated: 2024/03/16 18:12:54 by myokono          ###   ########.fr       */
+/*   Updated: 2024/03/16 20:51:48 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,10 @@ void ft_sort_big(t_stack **a)
 
 	b = NULL;
 	ft_sort_b (a, &b);
-
-	ft_join (a, &b);
+	ft_push_back (a, &b); /////
 	ft_free_null (&b);
 }
 
-
-int ft_push_atob(t_stack **b, int nbr)
-{
-	int i;
-	int max;
-	int min;
-	t_stack *tmp;
-	
-	tmp  = *b;
-	i = 0;
-	max 
-	if (nbr > (*b)->value &&nbr < ft_lstlast (*b)->value)
-		retutn (0);
-	else if (ft_max_value (*b) < nbr)
-	{
-		if ((*b)->value == ft_max_value (*b))
-			return (0);
-		
-		while (tmp->value != )
-		{
-			i++;
-		}
-		return (i);
-			
-	}
-	
-}
 
 void ft_sort_b (t_stack **a, t_stack **b)
 {
@@ -61,6 +33,31 @@ void ft_sort_b (t_stack **a, t_stack **b)
 		ft_sort_b2 (a, b);
 	if (ft_sort_check (*a) == -1)
 		ft_sort_three (a);
+}
+
+int ft_push_atob(t_stack **b, int nbr)
+{
+	int max;
+	int min;
+	int i;
+	
+	i = 0;
+	max = ft_max_value (*b);
+	min = ft_mini_value (*b);
+	if (nbr > (*b)->value && nbr < ft_lstlast (*b)->value)
+		retutn (0);
+	else if (max < nbr || min > nbr)
+	{
+		if ((*b)->value == max || ft_lstlast (*b)->value == min)
+			return (0);
+		return (ft_max_pointer (*b));	
+	}
+	while ((*b)->value < nbr || (*b)->prev->value > nbr)
+		{
+			(*b) = (*b)->next;
+			i++;
+		}
+		return (i);
 }
 
 void ft_sort_b2 (t_stack **a, t_stack **b)

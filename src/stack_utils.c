@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:07:56 by myokono           #+#    #+#             */
-/*   Updated: 2024/03/08 23:19:27 by myokono          ###   ########.fr       */
+/*   Updated: 2024/03/16 19:02:04 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,32 @@ size_t ft_lstsize (t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int ft_max_value (t_stack *stack)
+{
+	int max;
+
+	max = stack->value;
+	while (stack)
+	{
+		if (stack->value > max)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+int ft_mini_value (t_stack *stack)
+{
+	int min;
+
+	min = stack->value;
+	while (stack)
+	{
+		if (stack->value < min)
+			min = stack->value;
+		stack = stack->next;
+	}
+	return (mini);
 }
