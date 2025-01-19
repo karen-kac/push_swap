@@ -6,74 +6,61 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:07:56 by myokono           #+#    #+#             */
-/*   Updated: 2024/03/16 19:02:04 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/17 15:28:22 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack *ft_lstlast(t_stack *stack)
+t_stack	*ft_stack_new(int value)
 {
-	if (!stack->next)
-			return (NULL);
-	while (stack)
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		ft_error();
+	new->value = value;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
+t_stack	*ft_stack_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
 
-void ft_add_back (t_stack **stack, t_stack *new_stack)
+void	ft_stack_add_back(t_stack **stack, t_stack *new_stack)
 {
-	t_stack *last;
+	t_stack	*last;
 
-	last = ft_lstlast(*stack);
-	if (!stack)
-		return;
+	if (!stack || !new_stack)
+		return ;
 	if (!(*stack))
+	{
 		*stack = new_stack;
-	else
-	{
-		last->next = new_stack;
-		last->next->prev = last;
+		return ;
 	}
+	last = ft_stack_last(*stack);
+	last->next = new_stack;
+	new_stack->prev = last;
 }
 
-size_t ft_lstsize (t_stack *stack)
-{
-	size_t i;
-	
-	i = 0;
-	while (stack)
-	{
-		stack = stack->next;
-		i++;
-	}
-	return (i);
-}
 
-int ft_max_value (t_stack *stack)
-{
-	int max;
 
-	max = stack->value;
-	while (stack)
-	{
-		if (stack->value > max)
-			max = stack->value;
-		stack = stack->next;
-	}
-	return (max);
-}
 
-int ft_mini_value (t_stack *stack)
-{
-	int min;
 
-	min = stack->value;
-	while (stack)
-	{
-		if (stack->value < min)
-			min = stack->value;
-		stack = stack->next;
-	}
-	return (mini);
-}
+
+
+
+
+
+
+
+
+
+

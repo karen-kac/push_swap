@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_utils.c                                       :+:      :+:    :+:   */
+/*   free_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:16:00 by myokono           #+#    #+#             */
-/*   Updated: 2024/03/08 16:21:21 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/19 21:52:50 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,41 @@ void ft_free_null(t_stack **stack)
 	*stack = NULL;
 }
 
-void ft_error(void)
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
+
+void	ft_free_double_pointer(void ***ptr)
+{
+	int	i;
+
+	if (!ptr || !*ptr)
+		return ;
+	i = 0;
+	while ((*ptr)[i])
+	{
+		free((*ptr)[i]);
+		(*ptr)[i] = NULL;
+		i++;
+	}
+	free(*ptr);
+	*ptr = NULL;
+}
+
+void	ft_error(void)
 {
 	write (2, "Error\n", 6);
-	exit(1);
+	exit (1);
 }

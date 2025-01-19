@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:18:17 by myokono           #+#    #+#             */
-/*   Updated: 2024/03/16 20:15:47 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/19 21:53:01 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,81 +14,73 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <limits.h>
+# include "leakdetect.h"
 
-//struct
-typdef struct s_stack
+typedef struct s_stack
 {
 	int	value;
 	int	index;
-	struct s_stack *next;
-	struct s_stack *prev;
+	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
-//create_list
 
-t_stack *ft_create_list(int argc, char **argv);
 
-t_stack *ft_create_list_nq(int argc, char **argv, t_stack **stack);
-
-t_stack *ft_create_list_q(char **argv, t_stack **stack);
-
-//create_list_u
-
-int ft_atoi2(const char *str);
-
-int	ft_count_words(char *s, char c);
-
-//action1
-
-void ft_push(t_stack **to , t_stack **from, int i, char ab);
+//action1.c
+void	ft_push(t_stack **to, t_stack **from, int i, char ab);
 
 void	ft_rotate(t_stack **stack, int i, char ab);
 
-void ft_rrotate(t_stack **stack, int i, char ab);
+void	ft_rrotate(t_stack **stack, int i, char ab);
 
-void ft_swap(t_stack **stack, int i, char ab);
+void	ft_swap(t_stack **stack, int i, char ab);
 
-//action2
-
+//action2.c
 void	ft_ss(t_stack **a, t_stack **b, int i);
 
-void ft_rr(t_stack **a, t_stack **b, int i);
+void	ft_rr(t_stack **a, t_stack **b, int i);
 
-void ft_rrr(t_stack **a, t_stack **b, int i);
+void	ft_rrr(t_stack **a, t_stack **b, int i);
 
-//valid
+//create_stack.c
+int		ft_create_stack(int argc, char **argv, t_stack **a);
 
-int ft_is_unique (t_stack *stack);
+//free_error.c
 
-//free_error
+void	ft_free_null(t_stack **stack);
 
-void ft_free_null(t_stack **stack);
+void	ft_error(void);
 
-void ft_error(void);
+void	ft_free_double_pointer(void ***ptr);
 
-//sort
+void	ft_free_stack(t_stack **stack);
 
-int ft_sort_check(t_stack *stack);
+//sort_big.c
 
-void ft_sort (t_stack **a);
+//sort_small.c
+void	ft_sort_three(t_stack **a);
 
-//sort_small
+//sort_utils.c
 
-void ft_sort_five (t_stack **a);
+//sort.c
+int		ft_sort_check(t_stack *a);
 
-void ft_sort_three (t_stack **a);
+void	ft_sort(t_stack **a, t_stack **b);
 
-void ft_sort_small (t_stack **a, size_t size);
+//stack_utils.c
+t_stack	*ft_stack_new(int value);
 
-//sort_big
+t_stack	*ft_stack_last(t_stack *stack);
 
-void ft_sort_big(t_stack **a);
+void	ft_stack_add_back(t_stack **stack, t_stack *new_stack);
 
+//stack_utils2.c
+size_t	ft_stack_size(t_stack *stack);
 
-//
+t_stack	*ft_max_value(t_stack *stack);
 
-
-//
+t_stack	*ft_mini_value(t_stack *stack);
 
 
 # endif

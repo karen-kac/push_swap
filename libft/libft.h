@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 15:13:24 by myokono           #+#    #+#             */
-/*   Updated: 2024/03/08 10:03:42 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/09 15:35:12 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	**ft_split(char const *s, char c);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
-t_list *ft_lstlast(t_list *lst);
+// t_list *ft_lstlast(t_list *lst);
 
 
 #endif
