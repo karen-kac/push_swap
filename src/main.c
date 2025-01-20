@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:24:24 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/19 21:50:54 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/20 14:59:53 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@ static void destructor() {
 
 int	main(int argc, char **argv)
 {
-	leak_detect_init();
-
 	t_stack	*a;
 	t_stack	*b;
 
+	leak_detect_init();
 	a = NULL;
 	b = NULL;
 	if (ft_create_stack(argc, argv, &(a)) == -1)
 		ft_error();
-	if (ft_sort_check(a) == 0)
+	if (ft_sort_check(a) == -1)
 		ft_sort(&(a), &(b));
 	ft_free_stack(&(a));
 	leak_detect_check();

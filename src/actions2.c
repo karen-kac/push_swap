@@ -6,11 +6,11 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:44:57 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/09 15:37:57 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/20 13:56:27 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_ss(t_stack **a, t_stack **b, int i)
 {

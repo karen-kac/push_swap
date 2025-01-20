@@ -6,13 +6,13 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:16:00 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/19 21:52:50 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/20 15:13:43 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_free_null(t_stack **stack)
+void	ft_free_null(t_stack **stack)
 {
 	t_stack *tmp;
 

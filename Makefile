@@ -6,7 +6,7 @@
 #    By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:34:55 by myokono           #+#    #+#              #
-#    Updated: 2025/01/19 14:17:21 by myokono          ###   ########.fr        #
+#    Updated: 2025/01/20 15:03:32 by myokono          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ LIBFT = libft/libft.a
 
 # ソースファイルとディレクトリ
 SRCDIR = src/
-SRCFILES = actions1.c actions2.c create_stack.c free_error.c main.c sort_big.c \
-sort_small.c  sort.c stack_utils.c stack_utils2.c leakdetect.c
+SRCFILES = actions1.c actions2.c create_stack.c free_error.c main.c sort_big_cal.c \
+sort_big.c sort_small.c sort.c sort_utils.c stack_utils1.c stack_utils2.c leakdetect.c
 
 SRCS = $(addprefix $(SRCDIR), $(SRCFILES))
 OBJS = $(SRCS:.c=.o)
