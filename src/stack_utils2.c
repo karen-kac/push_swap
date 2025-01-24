@@ -56,3 +56,25 @@ int	ft_mini_value(t_stack *stack)
 	}
 	return (min);
 }
+
+t_stack	*ft_stack_new(int value)
+{
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		ft_error();
+	new->value = value;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
+t_stack	*ft_stack_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}

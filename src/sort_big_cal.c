@@ -16,9 +16,9 @@ int	ft_cal_rarb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
-	i = ft_find_place_a(a, c);
-	if (i < ft_find_index(b, c))
-		i = ft_find_index(b, c);
+	i = ft_push_b_to_a(a, c);
+	if (i < ft_find_target(b, c))
+		i = ft_find_target(b, c);
 	return (i);
 }
 
@@ -27,10 +27,10 @@ int	ft_cal_rrarrb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_place_a(a, c))
-		i = ft_stack_size(a) - ft_find_place_a(a, c);
-	if ((i < (ft_stack_size(b) - ft_find_index(b, c))) && ft_find_index(b, c))
-		i = ft_stack_size(b) - ft_find_index(b, c);
+	if (ft_push_b_to_a(a, c))
+		i = ft_stack_size(a) - ft_push_b_to_a(a, c);
+	if ((i < (ft_stack_size(b) - ft_find_target(b, c))) && ft_find_target(b, c))
+		i = ft_stack_size(b) - ft_find_target(b, c);
 	return (i);
 }
 
@@ -39,9 +39,9 @@ int	ft_cal_rarrb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_index(b, c))
-		i = ft_stack_size(b) - ft_find_index(b, c);
-	i = ft_find_place_a(a, c) + i;
+	if (ft_find_target(b, c))
+		i = ft_stack_size(b) - ft_find_target(b, c);
+	i = ft_push_b_to_a(a, c) + i;
 	return (i);
 }
 
@@ -50,9 +50,9 @@ int	ft_cal_rrarb_a(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_place_a(a, c))
-		i = ft_stack_size(a) - ft_find_place_a(a, c);
-	i = ft_find_index(b, c) + i;
+	if (ft_push_b_to_a(a, c))
+		i = ft_stack_size(a) - ft_push_b_to_a(a, c);
+	i = ft_find_target(b, c) + i;
 	return (i);
 }
 
@@ -60,9 +60,9 @@ int	ft_cal_rarb(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
-	i = ft_find_place_b(b, c);
-	if (i < ft_find_index(a, c))
-		i = ft_find_index(a, c);
+	i = ft_push_a_to_b(b, c);
+	if (i < ft_find_target(a, c))
+		i = ft_find_target(a, c);
 	return (i);
 }
 
@@ -71,10 +71,10 @@ int	ft_cal_rrarrb(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_place_b(b, c))
-		i = ft_stack_size(b) - ft_find_place_b(b, c);
-	if ((i < (ft_stack_size(a) - ft_find_index(a, c))) && ft_find_index(a, c))
-		i = ft_stack_size(a) - ft_find_index(a, c);
+	if (ft_push_a_to_b(b, c))
+		i = ft_stack_size(b) - ft_push_a_to_b(b, c);
+	if ((i < (ft_stack_size(a) - ft_find_target(a, c))) && ft_find_target(a, c))
+		i = ft_stack_size(a) - ft_find_target(a, c);
 	return (i);
 }
 
@@ -84,9 +84,9 @@ int	ft_cal_rrarb(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_index(a, c))
-		i = ft_stack_size(a) - ft_find_index(a, c);
-	i = ft_find_place_b(b, c) + i;
+	if (ft_find_target(a, c))
+		i = ft_stack_size(a) - ft_find_target(a, c);
+	i = ft_push_a_to_b(b, c) + i;
 	return (i);
 }
 
@@ -95,9 +95,9 @@ int	ft_cal_rarrb(t_stack *a, t_stack *b, int c)
 	int	i;
 
 	i = 0;
-	if (ft_find_place_b(b, c))
-		i = ft_stack_size(b) - ft_find_place_b(b, c);
-	i = ft_find_index(a, c) + i;
+	if (ft_push_a_to_b(b, c))
+		i = ft_stack_size(b) - ft_push_a_to_b(b, c);
+	i = ft_find_target(a, c) + i;
 	return (i);
 }
 

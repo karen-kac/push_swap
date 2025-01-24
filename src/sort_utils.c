@@ -16,21 +16,21 @@ int	ft_rarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
-		while ((*a)->value != c && ft_find_place_b(*b, c) > 0)
+		while ((*a)->value != c && ft_push_a_to_b(*b, c) > 0)
 			ft_rr(a, b, 0);
 		while ((*a)->value != c)
 			ft_rotate(a, 0, 'a');
-		while (ft_find_place_b(*b, c) > 0)
+		while (ft_push_a_to_b(*b, c) > 0)
 			ft_rotate(b, 0, 'b');
 		ft_push(b, a, 0, 'b');
 	}
 	else
 	{
-		while ((*b)->value != c && ft_find_place_a(*a, c) > 0)
+		while ((*b)->value != c && ft_push_b_to_a(*a, c) > 0)
 			ft_rr(a, b, 0);
 		while ((*b)->value != c)
 			ft_rotate(b, 0, 'b');
-		while (ft_find_place_a(*a, c) > 0)
+		while (ft_push_b_to_a(*a, c) > 0)
 			ft_rotate(a, 0, 'a');
 		ft_push(a, b, 0, 'a');
 	}
@@ -41,21 +41,21 @@ int	ft_rrarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
-		while ((*a)->value != c && ft_find_place_b(*b, c) > 0)
+		while ((*a)->value != c && ft_push_a_to_b(*b, c) > 0)
 			ft_rrr(a, b, 0);
 		while ((*a)->value != c)
 			ft_rrotate(a, 0, 'a');
-		while (ft_find_place_b(*b, c) > 0)
+		while (ft_push_a_to_b(*b, c) > 0)
 			ft_rrotate(b, 0, 'b');
 		ft_push(b, a, 0, 'b');
 	}
 	else
 	{
-		while ((*b)->value != c && ft_find_place_a(*a, c) > 0)
+		while ((*b)->value != c && ft_push_b_to_a(*a, c) > 0)
 			ft_rrr(a, b, 0);
 		while ((*b)->value != c)
 			ft_rrotate(b, 0, 'b');
-		while (ft_find_place_a(*a, c) > 0)
+		while (ft_push_b_to_a(*a, c) > 0)
 			ft_rrotate(a, 0, 'a');
 		ft_push(a, b, 0, 'a');
 	}
@@ -68,13 +68,13 @@ int	ft_rrarb(t_stack **a, t_stack **b, int c, char s)
 	{
 		while ((*a)->value != c)
 			ft_rrotate(a, 0, 'a');
-		while (ft_find_place_b(*b, c) > 0)
+		while (ft_push_a_to_b(*b, c) > 0)
 			ft_rotate(b, 0, 'b');
 		ft_push(b, a, 0, 'b');
 	}
 	else
 	{
-		while (ft_find_place_a(*a, c) > 0)
+		while (ft_push_b_to_a(*a, c) > 0)
 			ft_rrotate(a, 0, 'a');
 		while ((*b)->value != c)
 			ft_rotate(b, 0, 'b');
@@ -89,13 +89,13 @@ int	ft_rarrb(t_stack **a, t_stack **b, int c, char s)
 	{
 		while ((*a)->value != c)
 			ft_rotate(a, 0, 'a');
-		while (ft_find_place_b(*b, c) > 0)
+		while (ft_push_a_to_b(*b, c) > 0)
 			ft_rrotate(b, 0, 'b');
 		ft_push(b, a, 0, 'b');
 	}
 	else
 	{
-		while (ft_find_place_a(*a, c) > 0)
+		while (ft_push_b_to_a(*a, c) > 0)
 			ft_rotate(a, 0, 'a');
 		while ((*b)->value != c)
 			ft_rrotate(b, 0, 'b');

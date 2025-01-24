@@ -20,7 +20,10 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (ft_create_stack(argc, argv, &(a)) == -1)
+	{
+		ft_free_stack(&(a));
 		ft_error();
+	}
 	if (ft_sort_check(a) == -1)
 		ft_sort(&(a), &(b));
 	ft_free_stack(&(a));

@@ -12,28 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-t_stack	*ft_stack_new(int value)
-{
-	t_stack	*new;
-
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		ft_error();
-	new->value = value;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
-}
-
-t_stack	*ft_stack_last(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
-
 void	ft_stack_add_back(t_stack **stack, t_stack *new_stack)
 {
 	t_stack	*last;
@@ -50,49 +28,34 @@ void	ft_stack_add_back(t_stack **stack, t_stack *new_stack)
 	new_stack->prev = last;
 }
 
-size_t	ft_find_target(t_stack *a, int nbr)
-{
-	size_t	i;
-
-	i = 0;
-	while (a)
-	{
-		if (a->value == nbr)
-			return (i);
-		i++;
-		a = a->next;
-	}
-	return (SIZE_MAX);
-}
-
-int	ft_find_index(t_stack *a, int nbr)
+int	ft_find_target(t_stack *stack, int num)
 {
 	int		i;
 
 	i = 0;
-	while (a->value != nbr)
+	while (stack->value != num)
 	{
 		i++;
-		a = a->next;
+		stack = stack->next;
 	}
-	a->index = 0;
+	stack->index = 0;
 	return (i);
 }
 
-int	ft_find_place_b(t_stack *b, int nbr_push)
+int	ft_push_a_to_b(t_stack *b, int num)
 {
 	int		i;
 	t_stack	*tmp;
 
 	i = 1;
-	if (nbr_push > b->value && nbr_push < ft_stack_last(b)->value)
+	if (num > b->value && num < ft_stack_last(b)->value)
 		i = 0;
-	else if (nbr_push > ft_max_value(b) || nbr_push < ft_mini_value(b))
-		i = ft_find_index(b, ft_max_value(b));
+	else if (num > ft_max_value(b) || num < ft_mini_value(b))
+		i = ft_find_target(b, ft_max_value(b));
 	else
 	{
 		tmp = b->next;
-		while (b->value < nbr_push || tmp->value > nbr_push)
+		while (b->value < num || tmp->value > num)
 		{
 			b = b->next;
 			tmp = b->next;
@@ -102,20 +65,20 @@ int	ft_find_place_b(t_stack *b, int nbr_push)
 	return (i);
 }
 
-int	ft_find_place_a(t_stack *a, int nbr_push)
+int	ft_push_b_to_a(t_stack *a, int num)
 {
 	int		i;
 	t_stack	*tmp;
 
 	i = 1;
-	if (nbr_push < a->value && nbr_push > ft_stack_last(a)->value)
+	if (num < a->value && num > ft_stack_last(a)->value)
 		i = 0;
-	else if (nbr_push > ft_max_value(a) || nbr_push < ft_mini_value(a))
-		i = ft_find_index(a, ft_mini_value(a));
+	else if (num > ft_max_value(a) || num < ft_mini_value(a))
+		i = ft_find_target(a, ft_mini_value(a));
 	else
 	{
 		tmp = a->next;
-		while (a->value > nbr_push || tmp->value < nbr_push)
+		while (a->value > num || tmp->value < num)
 		{
 			a = a->next;
 			tmp = a->next;

@@ -97,25 +97,24 @@ int		ft_sort_check(t_stack *a);
 void	ft_sort(t_stack **a, t_stack **b);
 
 //stack_utils1.c
-t_stack	*ft_stack_new(int value);
-
-t_stack	*ft_stack_last(t_stack *stack);
-
 void	ft_stack_add_back(t_stack **stack, t_stack *new_stack);
 
-size_t	ft_find_target(t_stack *a, int nbr);
+int		ft_find_target(t_stack *stack, int num);
 
-int		ft_find_index(t_stack *stack, int nbr);
+int		ft_push_a_to_b(t_stack *b, int num);
 
-int	ft_find_place_b(t_stack *b, int nbr_push);
+int		ft_push_b_to_a(t_stack *a, int num);
 
-int	ft_find_place_a(t_stack *a, int nbr_push);
 //stack_utils2.c
 int		ft_stack_size(t_stack *stack);
 
 int		ft_max_value(t_stack *stack);
 
 int		ft_mini_value(t_stack *stack);
+
+t_stack	*ft_stack_new(int value);
+
+t_stack	*ft_stack_last(t_stack *stack);
 
 
 #endif

@@ -82,7 +82,7 @@ void	ft_sort_big(t_stack **a, t_stack **b)
 	if (ft_sort_check(*a) == -1)
 		ft_sort_three(a);
 	ft_sort_a(a, b);
-	i = ft_find_index(*a, ft_mini_value(*a));
+	i = ft_find_target(*a, ft_mini_value(*a));
 	if (i < ft_stack_size(*a) - i)
 	{
 		while ((*a)->value != ft_mini_value(*a))
