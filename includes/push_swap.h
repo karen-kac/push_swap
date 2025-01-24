@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include <limits.h>
 # include <stdio.h>
-# include "leakdetect.h"
 
 typedef struct s_stack
 {

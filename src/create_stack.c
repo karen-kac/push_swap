@@ -31,11 +31,11 @@ static int	ft_atoi2(const char *str)
 		str++;
 	}
 	if (sign * num > INT_MAX || sign * num < INT_MIN)
-		ft_error();
+		return (-1);
 	return (sign * num);
 }
 
-static void	ft_check_duplicate(t_stack *a, int nbr)
+static int	ft_check_duplicate(t_stack *a, int nbr)
 {
 	t_stack	*tmp;
 
@@ -43,37 +43,48 @@ static void	ft_check_duplicate(t_stack *a, int nbr)
 	while (tmp)
 	{
 		if (tmp->value == nbr)
-			ft_error();
+			return (-1);
 		tmp = tmp->next;
 	}
+	return (0);
 }
 
-static void	ft_check_args(char *argv)
+static int ft_check_args(char *argv)
 {
 	int	i;
 
 	if (!argv || !*argv)
-		ft_error();
+		return (-1);
 	i = 0;
 	if (argv[i] == '-' || argv[i] == '+')
 		i++;
 	while (argv[i])
 	{
 		if (!ft_isdigit(argv[i]))
-			ft_error();
+			return (-1);
 		i++;
 	}
+	return (0);
 }
 
-static void	ft_stack(int start, int end, char **argv, t_stack **a)
+static void	ft_stack(int start, int end, char **argv, t_stack **a, int split)
 {
 	int	num;
+	int i;
+	int j;
 
 	while (start < end)
 	{
-		ft_check_args(argv[start]);
+		i = ft_check_args(argv[start]);
 		num = ft_atoi2(argv[start]);
-		ft_check_duplicate(*a, num);
+		j = ft_check_duplicate(*a, num);
+		if (i == -1 || num == -1 || j == -1)
+		{
+			if (split == 2)
+				ft_free_double_pointer((void ***)&argv);
+			ft_free_stack(a);
+			ft_error();
+		}
 		ft_stack_add_back(a, ft_stack_new(num));
 		start++;
 	}
@@ -99,10 +110,10 @@ int	ft_create_stack(int argc, char **argv, t_stack **a)
 		}
 		while (tmp[i])
 			i++;
-		ft_stack(0, i, tmp, a);
+		ft_stack(0, i, tmp, a, 2);
 		ft_free_double_pointer((void ***)&tmp);
 	}
 	else
-		ft_stack(1, argc, argv, a);
+		ft_stack(1, argc, argv, a, 0);
 	return (0);
 }

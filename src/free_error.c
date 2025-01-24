@@ -64,5 +64,5 @@ void	ft_free_double_pointer(void ***ptr)
 void	ft_error(void)
 {
 	write (2, "Error\n", 6);
-	exit (1);
+	exit (0);
 }

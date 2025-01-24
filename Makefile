@@ -21,7 +21,7 @@ LIBFT = libft/libft.a
 # ソースファイルとディレクトリ
 SRCDIR = src/
 SRCFILES = actions1.c actions2.c create_stack.c free_error.c main.c sort_big_cal.c \
-sort_big.c sort_small.c sort.c sort_utils.c stack_utils1.c stack_utils2.c leakdetect.c
+sort_big.c sort_small.c sort.c sort_utils.c stack_utils1.c stack_utils2.c
 
 SRCS = $(addprefix $(SRCDIR), $(SRCFILES))
 OBJS = $(SRCS:.c=.o)
