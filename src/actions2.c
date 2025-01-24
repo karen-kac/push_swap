@@ -14,7 +14,6 @@
 
 void	ft_ss(t_stack **a, t_stack **b, int i)
 {
-
 	if (!*a || !(*a)->next || !*b || !(*b)->next)
 		return ;
 	ft_swap (a, 1, 'a');

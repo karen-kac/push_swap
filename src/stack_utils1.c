@@ -25,41 +25,14 @@ t_stack	*ft_stack_new(int value)
 	return (new);
 }
 
-// t_stack	*ft_stack_last(t_stack *stack)
-// {
-// 	if (!stack)
-// 		return (NULL);
-// 	while (stack->next)
-// 		stack = stack->next;
-// 	return (stack);
-// }
-
-
-
 t_stack	*ft_stack_last(t_stack *stack)
 {
-	if (!stack) // スタックが空の場合
+	if (!stack)
 		return (NULL);
-
-
 	while (stack->next)
-	{
-		// // 循環参照チェック
-		// if (stack->next == stack)
-		// {
-		// 	printf("Error: Circular reference detected at address: %p\n", (void *)stack);
-		// 	ft_error(); // 循環参照エラーを処理
-		// 	return (NULL);
-		// }
-
-
 		stack = stack->next;
-	}
-
-
-	return (stack); // 最後の要素を返す
+	return (stack);
 }
-
 
 void	ft_stack_add_back(t_stack **stack, t_stack *new_stack)
 {
@@ -91,28 +64,6 @@ size_t	ft_find_target(t_stack *a, int nbr)
 	}
 	return (SIZE_MAX);
 }
-// int	ft_find_place(t_stack *stack, int value, char stack_type)
-// {
-// 	t_stack	*current = stack;
-// 	int		count = 0;
-
-// 	// デバッグ情報を出力
-// 	printf("ft_find_place called for value: %d, stack_type: %c\n", value, stack_type);
-
-// 	while (current)
-// 	{
-// 		count++;
-// 		// 値を見つけた場合の処理（仮実装）
-// 		if (current->value == value)
-// 			return (count);
-		
-// 		current = current->next;
-// 	}
-
-// 	return (0); // デフォルト値
-// }
-
-
 
 int	ft_find_index(t_stack *a, int nbr)
 {
@@ -150,7 +101,6 @@ int	ft_find_place_b(t_stack *b, int nbr_push)
 	}
 	return (i);
 }
-
 
 int	ft_find_place_a(t_stack *a, int nbr_push)
 {

@@ -24,11 +24,12 @@ int	ft_stack_size(t_stack *stack)
 	}
 	return (i);
 }
+
 int	ft_max_value(t_stack *stack)
 {
 	int	max;
 
-	if (!stack) // スタックが空の場合にエラー処理
+	if (!stack)
 		ft_error();
 	max = stack->value;
 	while (stack)
@@ -44,7 +45,7 @@ int	ft_mini_value(t_stack *stack)
 {
 	int	min;
 
-	if (!stack) // スタックが空の場合にエラー処理
+	if (!stack)
 		ft_error();
 	min = stack->value;
 	while (stack)

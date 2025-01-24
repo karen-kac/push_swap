@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
+#include "../includes/push_swap.h"
+
 //pa(push a):b→a
 //pb(push b):a→b
 void	ft_push(t_stack **to, t_stack **from, int i, char ab)

@@ -33,7 +33,6 @@ void	ft_sort(t_stack **a, t_stack **b)
 	size_t	size;
 
 	size = ft_stack_size(*a);
-
 	if (size == 2)
 		ft_rotate (a, 0, 'a');
 	else if (size == 3)
