@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <libc.h>
+
 
 __attribute__((destructor))
 static void destructor() {

@@ -90,8 +90,6 @@ int	ft_cal_rrarb(t_stack *a, t_stack *b, int c)
 	return (i);
 }
 
-// Again, this function makes similar calculations.
-// This function do same calculations for ra+rrb cal.
 int	ft_cal_rarrb(t_stack *a, t_stack *b, int c)
 {
 	int	i;

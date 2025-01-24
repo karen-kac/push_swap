@@ -17,7 +17,7 @@ static void	ft_sort_b_sub(t_stack **a, t_stack **b)
 	int		i;
 	t_stack	*tmp;
 
-	while (ft_stack_size(*a) > 3 && !ft_sort_check(*a))
+	while (ft_stack_size(*a) > 3 && ft_sort_check(*a) == -1)
 	{
 		tmp = *a;
 		i = ft_rotate_type_ab(*a, *b);

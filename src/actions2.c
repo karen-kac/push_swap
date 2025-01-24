@@ -38,7 +38,7 @@ void	ft_rrr(t_stack **a, t_stack **b, int i)
 	if (!*a || !(*a)->next || !*b || !(*b)->next)
 		return ;
 	ft_rrotate (a, 1, 'a');
-	ft_rrotate (b, 0, 'b');
+	ft_rrotate (b, 1, 'b');
 	if (i == 0)
 		write(1, "rrr\n", 4);
 }

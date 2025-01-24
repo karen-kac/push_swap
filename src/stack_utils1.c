@@ -151,9 +151,7 @@ int	ft_find_place_b(t_stack *b, int nbr_push)
 	return (i);
 }
 
-// This function finds the correct place of the number in a.
-// In other words, it check what index number nbr_push will get 
-// after it is being pushed to the a.
+
 int	ft_find_place_a(t_stack *a, int nbr_push)
 {
 	int		i;
