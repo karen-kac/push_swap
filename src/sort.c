@@ -37,6 +37,8 @@ void	ft_sort(t_stack **a, t_stack **b)
 		ft_rotate (a, 0, 'a');
 	else if (size == 3)
 		ft_sort_three(a);
+	else if (size == 4)
+		ft_sort_four(a, b);
 	else
 		ft_sort_big (a, b);
 }

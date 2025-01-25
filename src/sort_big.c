@@ -12,11 +12,13 @@
 
 #include "../includes/push_swap.h"
 
-static void	ft_sort_b_sub(t_stack **a, t_stack **b)
+static void	ft_sort_b(t_stack **a, t_stack **b)
 {
 	int		i;
 	t_stack	*tmp;
 
+	ft_push(b, a, 0, 'b');
+	ft_push(b, a, 0, 'b');
 	while (ft_stack_size(*a) > 3 && ft_sort_check(*a) == -1)
 	{
 		tmp = *a;
@@ -35,16 +37,6 @@ static void	ft_sort_b_sub(t_stack **a, t_stack **b)
 				tmp = tmp->next;
 		}
 	}
-}
-
-static void	ft_sort_b(t_stack **a, t_stack **b)
-{
-	if (ft_stack_size(*a) > 3 && ft_sort_check(*a) == -1)
-		ft_push(b, a, 0, 'b');
-	if (ft_stack_size(*a) > 3 && ft_sort_check(*a) == -1)
-		ft_push(b, a, 0, 'b');
-	if (ft_stack_size(*a) > 3 && ft_sort_check(*a) == -1)
-		ft_sort_b_sub(a, b);
 	return ;
 }
 

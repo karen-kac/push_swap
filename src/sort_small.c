@@ -37,3 +37,32 @@ void	ft_sort_three(t_stack **a)
 			ft_rrotate (a, 0, 'a');
 	}
 }
+
+void	ft_sort_four(t_stack **a, t_stack **b)
+{
+	int	b_num;
+
+	ft_push (b, a, 0, 'b');
+	b_num = (*b)->value;
+	if (ft_sort_check(*a) == -1)
+		ft_sort_three(a);
+	if (ft_mini_value(*a) > b_num)
+		ft_push (a, b, 0, 'a');
+	else if (ft_max_value(*a) < b_num)
+	{
+		ft_push (a, b, 0, 'a');
+		ft_rotate (a, 0, 'a');
+	}
+	else if ((*a)->value < b_num && (*a)->next->value > b_num)
+	{
+		ft_push (a, b, 0, 'a');
+		ft_swap (a, 0, 'a');
+	}
+	else
+	{
+		ft_rrotate (a, 0, 'a');
+		ft_push (a, b, 0, 'a');
+		ft_rotate (a, 0, 'a');
+		ft_rotate (a, 0, 'a');
+	}
+}

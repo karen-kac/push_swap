@@ -82,6 +82,8 @@ void	ft_sort_big(t_stack **a, t_stack **b);
 //sort_small.c
 void	ft_sort_three(t_stack **a);
 
+void	ft_sort_four(t_stack **a, t_stack **b);
+
 //sort_utils.c
 int		ft_rarb(t_stack **a, t_stack **b, int c, char s);
 
