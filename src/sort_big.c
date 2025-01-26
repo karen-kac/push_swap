@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 23:21:35 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/20 20:18:06 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/26 15:04:49 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 static void	ft_sort_b(t_stack **a, t_stack **b)
 {
 	int		i;
-	t_stack	*tmp;
+	int		j;
+	t_stack	*mini;
 
 	ft_push(b, a, 0, 'b');
 	ft_push(b, a, 0, 'b');
 	while (ft_stack_size(*a) > 3 && ft_sort_check(*a) == -1)
 	{
-		tmp = *a;
-		i = ft_rotate_type_ab(*a, *b);
-		while (i >= 0)
+		mini = *a;
+		j = 1;
+		i = ft_cal_a_to_b(*a, *b, &j, &mini);
+		while (i > -1)
 		{
-			if (i == ft_cal_rarb(*a, *b, tmp->value))
-				i = ft_rarb(a, b, tmp->value, 'a');
-			else if (i == ft_cal_rrarrb(*a, *b, tmp->value))
-				i = ft_rrarrb(a, b, tmp->value, 'a');
-			else if (i == ft_cal_rarrb(*a, *b, tmp->value))
-				i = ft_rarrb(a, b, tmp->value, 'a');
-			else if (i == ft_cal_rrarb(*a, *b, tmp->value))
-				i = ft_rrarb(a, b, tmp->value, 'a');
-			else
-				tmp = tmp->next;
+			if (j == 1)
+				i = ft_rarb(a, b, mini->value, 'a');
+			else if (j == 2)
+				i = ft_rrarrb(a, b, mini->value, 'a');
+			else if (j == 3)
+				i = ft_rarrb(a, b, mini->value, 'a');
+			else if (j == 4)
+				i = ft_rrarb(a, b, mini->value, 'a');
 		}
 	}
 	return ;
@@ -43,24 +43,24 @@ static void	ft_sort_b(t_stack **a, t_stack **b)
 static void	ft_sort_a(t_stack **a, t_stack **b)
 {
 	int		i;
-	t_stack	*tmp;
+	int		j;
+	t_stack	*mini;
 
 	while (*b)
 	{
-		tmp = *b;
-		i = ft_rotate_type_ba(*a, *b);
-		while (i >= 0)
+		mini = *b;
+		j = 1;
+		i = ft_cal_b_to_a(*a, *b, &j, &mini);
+		while (i > -1)
 		{
-			if (i == ft_cal_rarb_a(*a, *b, tmp->value))
-				i = ft_rarb(a, b, tmp->value, 'b');
-			else if (i == ft_cal_rarrb_a(*a, *b, tmp->value))
-				i = ft_rarrb(a, b, tmp->value, 'b');
-			else if (i == ft_cal_rrarrb_a(*a, *b, tmp->value))
-				i = ft_rrarrb(a, b, tmp->value, 'b');
-			else if (i == ft_cal_rrarb_a(*a, *b, tmp->value))
-				i = ft_rrarb(a, b, tmp->value, 'b');
-			else
-				tmp = tmp->next;
+			if (j == 1)
+				i = ft_rarb(a, b, mini->value, 'b');
+			else if (j == 2)
+				i = ft_rrarrb(a, b, mini->value, 'b');
+			else if (j == 3)
+				i = ft_rarrb(a, b, mini->value, 'b');
+			else if (j == 4)
+				i = ft_rrarb(a, b, mini->value, 'b');
 		}
 	}
 	return ;
@@ -75,7 +75,7 @@ void	ft_sort_big(t_stack **a, t_stack **b)
 		ft_sort_three(a);
 	ft_sort_a(a, b);
 	i = ft_find_target(*a, ft_mini_value(*a));
-	if (i < ft_stack_size(*a) - i)
+	if (i < ft_stack_size(*a) / 2)
 	{
 		while ((*a)->value != ft_mini_value(*a))
 			ft_rotate(a, 0, 'a');

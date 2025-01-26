@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:18:17 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/20 20:03:45 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/26 15:06:12 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+typedef int (*t_cal_func)(t_stack *, t_stack *, int);
 
 //action1.c
 void	ft_push(t_stack **to, t_stack **from, int i, char ab);
@@ -71,10 +73,10 @@ int		ft_cal_rarrb_a(t_stack *a, t_stack *b, int c);
 
 int		ft_cal_rrarb_a(t_stack *a, t_stack *b, int c);
 
-int		ft_rotate_type_ab(t_stack *a, t_stack *b);
+// sort_big_cal2.c
+int	ft_cal_a_to_b(t_stack *a, t_stack *b, int *j, t_stack **mini);
 
-int		ft_rotate_type_ba(t_stack *a, t_stack *b);
-
+int	ft_cal_b_to_a(t_stack *a, t_stack *b, int *j, t_stack **mini);
 
 //sort_big.c
 void	ft_sort_big(t_stack **a, t_stack **b);
