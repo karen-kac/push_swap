@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:18:17 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/26 15:06:12 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/26 17:45:00 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 
 typedef struct s_stack
 {
-	int	value;
-	int	index;
+	int				value;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
 
-typedef int (*t_cal_func)(t_stack *, t_stack *, int);
+typedef int	(*t_cal_func)(t_stack *, t_stack *, int, char);
 
 //action1.c
 void	ft_push(t_stack **to, t_stack **from, int i, char ab);
@@ -57,26 +57,18 @@ void	ft_free_double_pointer(void ***ptr);
 void	ft_free_stack(t_stack **stack);
 
 // sort_big_cal.c
-int		ft_cal_rarb(t_stack *a, t_stack *b, int c);
+int		ft_cal_rarb(t_stack *a, t_stack *b, int c, char s);
 
-int		ft_cal_rrarrb(t_stack *a, t_stack *b, int c);
+int		ft_cal_rrarrb(t_stack *a, t_stack *b, int c, char s);
 
-int		ft_cal_rarrb(t_stack *a, t_stack *b, int c);
+int		ft_cal_rarrb(t_stack *a, t_stack *b, int c, char s);
 
-int		ft_cal_rrarb(t_stack *a, t_stack *b, int c);
-
-int		ft_cal_rarb_a(t_stack *a, t_stack *b, int c);
-
-int		ft_cal_rrarrb_a(t_stack *a, t_stack *b, int c);
-
-int		ft_cal_rarrb_a(t_stack *a, t_stack *b, int c);
-
-int		ft_cal_rrarb_a(t_stack *a, t_stack *b, int c);
+int		ft_cal_rrarb(t_stack *a, t_stack *b, int c, char s);
 
 // sort_big_cal2.c
-int	ft_cal_a_to_b(t_stack *a, t_stack *b, int *j, t_stack **mini);
+int		ft_cal_a_to_b(t_stack *a, t_stack *b, int *j, t_stack **mini);
 
-int	ft_cal_b_to_a(t_stack *a, t_stack *b, int *j, t_stack **mini);
+int		ft_cal_b_to_a(t_stack *a, t_stack *b, int *j, t_stack **mini);
 
 //sort_big.c
 void	ft_sort_big(t_stack **a, t_stack **b);
@@ -119,6 +111,5 @@ int		ft_mini_value(t_stack *stack);
 t_stack	*ft_stack_new(int value);
 
 t_stack	*ft_stack_last(t_stack *stack);
-
 
 #endif
