@@ -6,7 +6,7 @@
 /*   By: myokono <myokono@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 11:18:17 by myokono           #+#    #+#             */
-/*   Updated: 2025/01/26 17:45:00 by myokono          ###   ########.fr       */
+/*   Updated: 2025/01/27 09:35:31 by myokono          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/libft.h"
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
