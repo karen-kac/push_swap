@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-static int	ft_atoi2(const char *str)
+static long	ft_atoi2(const char *str)
 {
 	int		sign;
 	long	num;
@@ -31,7 +31,7 @@ static int	ft_atoi2(const char *str)
 		str++;
 	}
 	if (sign * num > INT_MAX || sign * num < INT_MIN)
-		return (-1);
+		return (LONG_MAX);
 	return (sign * num);
 }
 
@@ -69,16 +69,16 @@ static int	ft_check_args(char *argv)
 
 static int	ft_stack(int start, int end, char **argv, t_stack **a)
 {
-	int	num;
-	int	i;
-	int	j;
+	long	num;
+	int		i;
+	int		j;
 
 	while (start < end)
 	{
 		i = ft_check_args(argv[start]);
 		num = ft_atoi2(argv[start]);
 		j = ft_check_duplicate(*a, num);
-		if (i == -1 || num == -1 || j == -1)
+		if (i == -1 || num == LONG_MAX || j == -1)
 			return (-1);
 		ft_stack_add_back(a, ft_stack_new(num));
 		start++;

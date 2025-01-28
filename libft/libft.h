@@ -18,16 +18,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef	struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
-typedef struct	s_split_next
+typedef struct s_split_next
 {
-	size_t start;
-	size_t length;
+	size_t	start;
+	size_t	length;
 }				t_split_next;
 
 int		ft_atoi(const char *str);
@@ -97,8 +97,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
-// t_list *ft_lstlast(t_list *lst);
-
 
 #endif
